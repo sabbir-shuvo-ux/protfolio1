@@ -1,0 +1,299 @@
+:root{
+	--black-color: #212529;
+	--white-color: #ffffff;
+	--font-paragraph: 'Hind', sans-serif;
+	--font-title: 'Kristi', cursive;
+	--font-btn: 'Montserrat', sans-serif;
+	--font-section-title: 'Oswald', sans-serif;
+	--responsive-nav-color: #C4C4C4;
+	--logo-shadow: 0 0 0 0 #000;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+/* -------------------------
+# Basic
+---------------------------- */
+
+section{
+	padding: 1rem 0;
+	width: 100%;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background: var(--white-color);
+}
+
+a{
+	text-decoration: none;
+	color: var(--black-color);
+}
+
+a:hover{
+	color: var(--black-color);
+}
+
+p{
+	font-size: var(--font-paragraph);
+	color: var(--black-color);
+}
+
+/* -------------------------
+# custom component 
+---------------------------- */
+
+.drak_mode_body{
+	--black-color: #ffffff;
+	--white-color: #212529;
+	--logo-shadow: 0 0 10px 0 #000;
+}
+
+.main_btn {
+	font-family: var(--font-btn);
+	font-weight: 500;
+	background: transparent;
+	border: 1px solid var(--black-color);
+	padding: 0.3rem 0.8rem;
+	transition: 300ms;
+	border-radius: 0.25rem;
+	color: var(--black-color);
+}
+
+.main_btn:hover{
+	background: var(--black-color);
+	color: var(--white-color);
+}
+
+.sectio_title {
+	font-family: var(--black-color);
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	text-transform: capitalize;
+	color: var(--black-color);
+}
+
+/* -------------------------
+# Navbar
+---------------------------- */
+.navbar_custom {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	padding: 1rem 0;
+	background: var(--white-color);
+	transition: 300ms;
+}
+
+.navbar_custom.nav_style_active{
+	height: 70px;
+	transition: height 300ms;
+	padding: 0;
+}
+
+.logo{
+	width: 50px;
+	box-shadow: var(--logo-shadow);
+}
+
+.menu{
+	gap: 2rem;
+	margin: 0;
+}
+
+.menu li{
+	font-size: 17px;
+	cursor: pointer;
+	position: relative;
+	color: var(--black-color);
+	transition: width 300ms;
+}
+
+.menu li::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	background: var(--black-color);
+	width: 0%;
+	height: 2px;
+	border-radius: 12px;
+	transition: width 300ms;
+}
+
+.menu li:hover::after{
+	width: 100%;
+}
+
+.menu li.nav_active::after{
+	width: 100%;
+}
+
+.toggle_btn{
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.toggle_btn {
+		display: block;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.toggle_btn img {
+		width: 25px;
+		position: absolute;
+	}
+
+	.menu li{
+		opacity: 0;
+		left: 10px;
+	}
+
+	.toggle_btn.active_ani .cross{
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.cross {
+		font-size: 30px;
+		opacity: 0;
+		pointer-events: none;
+		color: var(--black-color);
+	}
+
+	.toggle_img{
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.toggle_btn.active_ani .toggle_img{
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.menu {
+		position: fixed;
+		left: 0;
+		top: -100%;
+		flex-direction: column;
+		background: var(--responsive-nav-color);
+		width: 100%;
+		justify-content: start !important;
+		height: 100vh;
+		z-index: -1;
+		padding-top: 2rem;
+	}
+}
+
+.menu.mode_swich #drak_mode{
+	display: none !important;
+}
+
+.menu.mode_swich #light_mode{
+	display: block !important;
+}
+
+/* -------------------------
+# hero
+---------------------------- */
+
+.hero{
+	display: grid;
+	place-items: center;
+}
+
+.hero_left h1 {
+	font-size: 8rem;
+	font-family: var(--font-title);
+	font-weight: bold;
+	color: var(--black-color);
+}
+
+.hero_right p {
+	font-size: 18px;
+	max-width: 90%;
+}
+
+.hero_btns {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	justify-content: start;
+}
+
+.social_btn{
+	background: var(--black-color);
+}
+
+.social_btn:hover{
+	background: transparent !important;
+}
+
+.social_btn:hover i{
+	color: var(--black-color) !important;
+}
+
+.hero_btns .main_btn i{
+	color: var(--white-color);
+}
+
+@media (max-width: 991.98px) {
+	.hero_left h1{
+		font-size: 7rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.hero{
+		text-align: center;
+	}
+
+	.hero_right{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	.hero_right p {
+		max-width: 400px;
+		margin-right: auto;
+		margin-left: auto;
+		line-height: 30px;
+	}
+
+	.hero_btns {
+		justify-content: center;
+		margin: 2rem auto;
+	}
+
+}
+
+/* -------------------------
+# leadership
+---------------------------- */
+.lead_content p {
+	line-height: 26px;
+}
+
+/* -------------------------
+# Inclusive Design
+---------------------------- */
+
+.inclusive_title_area p{
+	font-size: 18px;
+}
+
+.card {
+	border: 1px solid #cccccc;
+	background: var(--white-color);
+}
+
+.card_text{
+	min-height: 50px;
+	max-height: 50px;
+	overflow: hidden;
+}
