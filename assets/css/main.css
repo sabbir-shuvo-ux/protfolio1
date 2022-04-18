@@ -178,8 +178,8 @@ p{
 
 	.menu {
 		position: fixed;
-		left: 0;
-		top: -100%;
+		left: -100%;
+		top: 71px;
 		flex-direction: column;
 		background: var(--responsive-nav-color);
 		width: 100%;

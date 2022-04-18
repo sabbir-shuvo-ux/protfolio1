@@ -30,7 +30,7 @@ let t1 = gsap.timeline({ paused: true });
 t1.to(".menu", {
 	opacity: 1,
 	duration: 1,
-	top: 71,
+	left: 0,
 	ease: Power2.easeInOut
 });
 
